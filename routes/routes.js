@@ -11,10 +11,11 @@ app.use(cors());
 const authentication = require('../authentication/auth');
 
 // Middleware
-// const middleware = require('../middleware/validatingApi');
+const middleware = require('../middleware/validatingApi');
 
 // Controller
-const controllers = require('../controllers/userInformation');
+const userControllers = require('../controllers/userInformation');
+const ppControllers = require('../controllers/ppCtrl');
 
 // Sample API testing
 app.get('/', (req, res) => {
@@ -25,27 +26,52 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users/register', (req, res, next) => {
-  controllers.userRegister(req, res);
+  userControllers.userRegister(req, res);
 });
 
 app.post('/users/authenticate', (req, res, next) => {
-  controllers.userLogin(req, res);
+  userControllers.userLogin(req, res);
 });
 
 app.get('/users', (req, res, next) => {
-  controllers.getAllUsers(req, res);
+  userControllers.getAllUsers(req, res);
 });
 
 app.get('/users/:id', (req, res, next) => {
-  controllers.getSingleUsers(req, res);
+  userControllers.getSingleUsers(req, res);
 });
 
 app.put('/users/:id', (req, res, next) => {
-  controllers.updateSingleUsers(req, res);
+  userControllers.updateSingleUsers(req, res);
 });
 
 app.delete('/users/:id', (req, res, next) => {
-  controllers.deleteSingleUsers(req, res);
+  userControllers.deleteSingleUsers(req, res);
+});
+
+// get all url shorten
+app.get('/todo/get-all', [authentication.authUser], (req, res, next) => {
+  ppControllers.getAllInformation(req, res);
+});
+
+// Create todos
+app.post('/todo/create', [authentication.authUser, middleware.validateAPI], (req, res, next) => {
+  ppControllers.todoSaveList(req, res);
+});
+
+// Delete Single todos
+app.delete('/:id', [authentication.authUser, middleware.fetchSingleDataValidateAPI], (req, res, next) => {
+  ppControllers.deleteOne(req, res);
+});
+
+// Fetch Single todos
+app.get('/:id', [authentication.authUser, middleware.fetchSingleDataValidateAPI], (req, res, next) => {
+  ppControllers.fetchOne(req, res);
+});
+
+// Fetch Single todos
+app.put('/todo/update', authentication.authUser, (req, res, next) => {
+  ppControllers.updateOne(req, res);
 });
 
 module.exports = app;

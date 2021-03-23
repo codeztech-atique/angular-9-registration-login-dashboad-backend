@@ -1,0 +1,23 @@
+{
+    "serverMongodb": {
+      "url": "mongodb+srv://",
+      "username":"atique",
+      "password":"atique",
+      "serverUrl":"cluster0.dgfcd.mongodb.net",
+      "port":"27017",
+      "databaseName":"Rewaa"
+    },
+    "localMongodb": {
+      "url": "mongodb://",
+      "username":"",
+      "password":"",
+      "serverUrl":"localhost",
+      "port":"27017",
+      "databaseName":"Rewaa"
+    },
+    "secret": "secret_key",
+    "tokenExpires": 2000,
+    "superSecret": "gOROfWnARLrbodzhKALrkTd1XTGTa6L3cuCAVKoohR2IishKtMvtZYliAhKpP7D",
+    "port": 4000
+  }
+  

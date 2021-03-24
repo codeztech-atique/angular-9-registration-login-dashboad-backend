@@ -103,7 +103,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/RewaaProductApps/production/1616561480634-2021-03-24T04:51:20.634Z/RewaaProductApps.zip"
+          "S3Key": "serverless/RewaaProductApps/production/1616564568340-2021-03-24T05:42:48.340Z/RewaaProductApps.zip"
         },
         "FunctionName": "RewaaProductApps-production-api",
         "Handler": "lambda.handler",
@@ -122,14 +122,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "ApiLambdaVersion1Xvb5QASg9qGT2p1IbVzGuyK0yp5XfYdRAz3YGbI": {
+    "ApiLambdaVersionK941kdt5Dr7QtQLhKg6i9w8wKboh3FdqYRPNPSiDqA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "4I+8nufAXbyNWLQi+P9kvISuVqUp0UGqxeqy/iZdk5M="
+        "CodeSha256": "OaZ02WIyAub283TnO7jJuY4JCGdH74UqHhqyF+Z/THQ="
       }
     },
     "ApiGatewayRestApi": {
@@ -247,7 +247,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1616561459852": {
+    "ApiGatewayDeployment1616564545412": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -317,7 +317,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersion1Xvb5QASg9qGT2p1IbVzGuyK0yp5XfYdRAz3YGbI"
+        "Ref": "ApiLambdaVersionK941kdt5Dr7QtQLhKg6i9w8wKboh3FdqYRPNPSiDqA"
       }
     },
     "ServiceEndpoint": {

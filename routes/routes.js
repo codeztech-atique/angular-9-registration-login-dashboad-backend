@@ -33,19 +33,19 @@ app.post('/users/authenticate', (req, res, next) => {
   userControllers.userLogin(req, res);
 });
 
-app.get('/users', (req, res, next) => {
+app.get('/users', [authentication.authUser], (req, res, next) => {
   userControllers.getAllUsers(req, res);
 });
 
-app.get('/users/:id', (req, res, next) => {
+app.get('/users/:id', [authentication.authUser], (req, res, next) => {
   userControllers.getSingleUsers(req, res);
 });
 
-app.put('/users/:id', (req, res, next) => {
+app.put('/users/:id', [authentication.authUser], (req, res, next) => {
   userControllers.updateSingleUsers(req, res);
 });
 
-app.delete('/users/:id', (req, res, next) => {
+app.delete('/users/:id', [authentication.authUser], (req, res, next) => {
   userControllers.deleteSingleUsers(req, res);
 });
 

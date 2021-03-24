@@ -9,7 +9,7 @@ const connectUrl = config.serverMongodb.url+''+config.serverMongodb.username+':'
 // Mongodb LocalUrl
 // const connectUrl = config.localMongodb.url+''+config.localMongodb.serverUrl+':'+config.localMongodb.port+'/'+config.localMongodb.databaseName;
 
-mongoose.connect(connectUrl,{ useNewUrlParser:true, useUnifiedTopology: true },(err) => {
+mongoose.connect(connectUrl,{ useNewUrlParser:true, useUnifiedTopology: true, useFindAndModify: false },(err) => {
     if(!err){
         console.log(chalk.green('MongoDB connected...'));
     } else

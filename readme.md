@@ -38,5 +38,5 @@ AWS API Getway <br />
 https://u3ubrjqndh.execute-api.ap-south-1.amazonaws.com/production
 
 # API Documention URL
-https://documenter.getpostman.com/view/2063706/Tz5qZGni
+https://documenter.getpostman.com/view/2063706/TzCFiX3e
 

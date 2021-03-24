@@ -121,8 +121,7 @@ exports.updateSingleUsers = (req, res, next) => {
     console.log(err)
   else
     res.status(200).send({
-        message: 'Succesfully fetch Record!',
-        data: product[0]
+        message: 'Succesfully Updated the Record!'
     });
   });
 }
@@ -132,12 +131,18 @@ exports.deleteSingleUsers = (req, res, next) => {
   var query = {'_id': req.params.id};
   console.log(query)
   Userdetail.findByIdAndRemove(query, (err,product)=> {
-  if (err)
-    console.log(err)
-  else
-    res.status(200).send({
-        message: 'Succesfully fetch Record!',
-        data: product[0]
-    });
+      if (err)
+        console.log(err)
+      else {
+        if(product === null) {
+          res.status(404).send({
+            message: 'User Not Found',
+          });
+        } else {
+          res.status(200).send({
+            message: 'Succesfully Deleted Record!',
+          });
+        }
+      }
   });
 }
